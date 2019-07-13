@@ -1,0 +1,86 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 50rem;
+  width: 100rem;
+  border: 3px black solid;
+  margin-right: 0.5rem;
+}
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0;
+}
+
+.gm-style-iw {
+  width: 500px;
+  min-height: 200px;
+}
+
+.div--card {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.div--card:hover {
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.2);
+}
+
+.img--weather_icon {
+  width: 100%;
+  margin-right: 1em;
+}
+
+.container--data {
+  height: 10em;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+h1 {
+  min-width: 8em;
+  text-align: center;
+  margin-top: 0.5em;
+}
+span {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.div__div--inputContainer {
+  display: flex;
+  flex-direction: column;
+  border: 2px black solid;
+  margin-top: 10%;
+  margin-bottom: 20%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.div__container {
+  display: flex;
+}
+
+.div__input_selector,
+label {
+  width: 15em;
+  margin-left: 0.5em;
+  margin-bottom: 1em;
+}
+
+#submit {
+  width: 15em;
+  height: 3em;
+  border-radius: 2em;
+  background-color: #f56f42;
+}
+.div__button {
+  text-align: center;
+}

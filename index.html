@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="div__container">
+      <div class="div__div--inputContainer">
+        <h1>Easy search!</h1>
+        <label for="countries">Choose country:</label>
+        <select class="div__input_selector" id="countries"></select>
+        <label for="cities">Choose city:</label>
+        <select class="div__input_selector" id="cities"></select>
+        <div class="div__button"><button id="submit">place it!</button></div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+    <script src="./helpers/lodash.js"></script>
+    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAryRq15wTP98Dft4BNRcBAWkal1Vy2BMg&callback=initMap"></script>
+  </body>
+</html>
