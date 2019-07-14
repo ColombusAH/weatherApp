@@ -8,9 +8,6 @@ const data = {
   countries_names: [],
   capitals: []
 };
-var cities_info;
-var country_names;
-var capitals;
 
 const select_countries_element = document.querySelector("#countries");
 const select_cities_element = document.querySelector("#cities");
@@ -126,7 +123,7 @@ async function getDataFromFile(file_name) {
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 /**
 params: initialSelect : initial input for selecting
@@ -183,14 +180,22 @@ desc: recenter the map for the user !!!
  */
 
 select_countries_element.addEventListener("change", () => {
-  const country_name = select_countries_element[select_countries_element.selectedIndex].text;
-  const capital_city = _.find(data.capitals, ['country', country_name]);
-  const city_info = _.find(data.cities_info, ['name', capital_city.city]);
+  const country_name =
+    select_countries_element[select_countries_element.selectedIndex].text;
+  const capital_city = _.find(data.capitals, ["country", country_name]);
+  const city_info = _.find(data.cities_info, ["name", capital_city.city]);
 
-  const latLng = new google.maps.LatLng(city_info.coord.lat, city_info.coord.lon);
+  if(city_info && capital_city) {
+  const latLng = new google.maps.LatLng(
+    city_info.coord.lat,
+    city_info.coord.lon
+  );
   map.setCenter(latLng);
   setCitiesByCountryCode(city_info.country);
   select_cities_element.value = capital_city.city;
+ setMarker({lat: city_info.coord.lat,
+    lng: city_info.coord.lon});
+}
 });
 
 /**
@@ -198,7 +203,11 @@ select_countries_element.addEventListener("change", () => {
 desc: initializing
  */
 window.onload = async function() {
-  [await getDataFromFile('cities_info'), await getDataFromFile('countries_names'), await getDataFromFile('capitals')];
+  [
+    await getDataFromFile("cities_info"),
+    await getDataFromFile("countries_names"),
+    await getDataFromFile("capitals")
+  ];
   setCitiesByCountryCode("IL");
   setCountriesNames("IL");
   select_cities_element.value = "Jerusalem";
